@@ -36,7 +36,8 @@ app.layout = html.Div([
     dcc.Dropdown(
         id='participant-dropdown',
         options=[{'label': participant, 'value': participant} for participant in df['Participant'].unique()],
-        value='Participant 1'
+        value=['Participant 1'],
+        multi=True
     ),
     dcc.Checklist(
         id='data-toggle',
@@ -57,9 +58,9 @@ app.layout = html.Div([
     [Input('participant-dropdown', 'value'),
      Input('data-toggle', 'value')]
 )
-def update_line_plot(selected_participant, selected_data):
-    filtered_df = df[df['Participant'] == selected_participant]
-    fig = px.line(filtered_df, x='Date', y=selected_data, title=f'Data Trends for {selected_participant}')
+def update_line_plot(selected_participants, selected_data):
+    filtered_df = df[df['Participant'].isin(selected_participants)]
+    fig = px.line(filtered_df, x='Date', y=selected_data, color='Participant', title='Participant Data Comparison')
     fig.update_xaxes(title='Date')
     fig.update_yaxes(title='Value')
     return fig
