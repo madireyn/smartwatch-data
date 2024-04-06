@@ -42,10 +42,10 @@ app.layout = html.Div([
     dcc.Checklist(
         id='data-toggle',
         options=[
-            {'label': 'Step Count', 'value': 'Num_Steps'},
-            {'label': 'Active Hours', 'value': 'Active_Hours'},
-            {'label': 'Calories Burned', 'value': 'Calories_Burned'},
-            {'label': 'Distance Walked (Mi)', 'value': 'Distance_Walked_Mi'}
+            {'label': 'step count', 'value': 'Num_Steps'},
+            {'label': 'active hours', 'value': 'Active_Hours'},
+            {'label': 'calories burned', 'value': 'Calories_Burned'},
+            {'label': 'distance walked (mi)', 'value': 'Distance_Walked_Mi'}
         ],
         value=['Num_Steps']
     ),
