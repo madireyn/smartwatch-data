@@ -4,3 +4,4 @@ dash-html-components
 dash-table
 plotly
 pandas
+gunicorn
